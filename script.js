@@ -1,15 +1,14 @@
-// Marwin demo shop: products are stored as JavaScript objects in an array.
 const products = [
-  {id:1,name:'The Little Book of Wonder',image:'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=600&q=80',category:'books',description:'A cosy story for curious minds.',price:4500,icon:'📚',color:'#dce8d5',badge:'BESTSELLER',rating:4},
-  {id:2,name:'The Art of Small Things',image:'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80',category:'books',description:'A colourful book full of ideas.',price:5200,icon:'📖',color:'#f4d9ce',badge:'NEW',rating:5},
-  {id:3,name:'Weekend Puzzle',image:'https://images.unsplash.com/photo-1606503153255-59d8b8b8217d?auto=format&fit=crop&w=600&q=80',category:'games',description:'A calm challenge to share.',price:6800,icon:'🧩',color:'#e7e0f6',badge:'POPULAR',rating:4},
-  {id:4,name:'Little Game Night',image:'https://images.unsplash.com/photo-1606167668584-78701c57f13d?auto=format&fit=crop&w=600&q=80',category:'games',description:'Big laughs in a small box.',price:7900,icon:'🎲',color:'#f7e6b9',badge:'FAMILY PICK',rating:5},
-  {id:5,name:'Creative Colour Kit',image:'https://images.unsplash.com/photo-1558060370-d644479cb6f7?auto=format&fit=crop&w=600&q=80',category:'toys',description:'Make, draw, and imagine freely.',price:3900,icon:'🖍️',color:'#d7e9f2',badge:'CREATIVE',rating:4},
-  {id:6,name:'Tiny Garden Set',image:'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=600&q=80',category:'toys',description:'A playful set for little builders.',price:6100,icon:'🪴',color:'#dce8d5',badge:'NEW',rating:5},
-  {id:7,name:'Happy Day Gift Box',image:'https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=600&q=80',category:'gifts',description:'A thoughtful surprise for someone.',price:8500,icon:'🎁',color:'#f4d9ce',badge:'GIFT IDEA',rating:5},
-  {id:8,name:'Cosy Mug & Notes',image:'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=600&q=80',category:'gifts',description:'A small treat for slow mornings.',price:4700,icon:'☕',color:'#f2dfc4',badge:'LITTLE TREAT',rating:4}
+  { id: 1, name: 'The Little Book of Wonder', image: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=600&q=80', category: 'books', description: 'A cosy story for curious minds.', price: 4500, icon: '📚', color: '#dce8d5', badge: 'BESTSELLER', rating: 4 },
+  { id: 2, name: 'The Art of Small Things', image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80', category: 'books', description: 'A colourful book full of ideas.', price: 5200, icon: '📖', color: '#f4d9ce', badge: 'NEW', rating: 5 },
+  { id: 3, name: 'Weekend Puzzle', image: 'https://images.unsplash.com/photo-1606503153255-59d8b8b8217d?auto=format&fit=crop&w=600&q=80', category: 'games', description: 'A calm challenge to share.', price: 6800, icon: '🧩', color: '#e7e0f6', badge: 'POPULAR', rating: 4 },
+  { id: 4, name: 'Little Game Night', image: 'https://images.unsplash.com/photo-1606167668584-78701c57f13d?auto=format&fit=crop&w=600&q=80', category: 'games', description: 'Big laughs in a small box.', price: 7900, icon: '🎲', color: '#f7e6b9', badge: 'FAMILY PICK', rating: 5 },
+  { id: 5, name: 'Creative Colour Kit', image: 'https://images.unsplash.com/photo-1558060370-d644479cb6f7?auto=format&fit=crop&w=600&q=80', category: 'toys', description: 'Make, draw, and imagine freely.', price: 3900, icon: '🖍️', color: '#d7e9f2', badge: 'CREATIVE', rating: 4 },
+  { id: 6, name: 'Tiny Garden Set', image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=600&q=80', category: 'toys', description: 'A playful set for little builders.', price: 6100, icon: '🪴', color: '#dce8d5', badge: 'NEW', rating: 5 },
+  { id: 7, name: 'Happy Day Gift Box', image: 'https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=600&q=80', category: 'gifts', description: 'A thoughtful surprise for someone.', price: 8500, icon: '🎁', color: '#f4d9ce', badge: 'GIFT IDEA', rating: 5 },
+  { id: 8, name: 'Cosy Mug & Notes', image: 'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=600&q=80', category: 'gifts', description: 'A small treat for slow mornings.', price: 4700, icon: '☕', color: '#f2dfc4', badge: 'LITTLE TREAT', rating: 4 }
 ];
-const categoryNames = {all:'all our little finds',books:'books',games:'games',toys:'toys and play',gifts:'gifts'};
+const categoryNames = { all: 'all our little finds', books: 'books', games: 'games', toys: 'toys and play', gifts: 'gifts' };
 let activeCategory = 'all';
 let cartCount = 0;
 let toastTimer;
@@ -21,7 +20,6 @@ const resultsNote = document.querySelector('#resultsNote');
 const emptyState = document.querySelector('#emptyState');
 const toast = document.querySelector('#toast');
 
-// Higher-order function: filter() receives a callback to select matching products.
 function getVisibleProducts() {
   const searchText = searchInput.value.trim().toLowerCase();
   return products.filter((product) => {
@@ -32,7 +30,6 @@ function getVisibleProducts() {
 }
 
 function showToast(message) {
-  // jQuery stops a previous animation before showing a fresh notification.
   $(toast).stop(true, true).text(message).addClass('show').hide().fadeIn(180);
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => {
@@ -51,7 +48,6 @@ function makeStars(product) {
 
 function renderProducts() {
   const visibleProducts = getVisibleProducts();
-  // map() transforms product objects into HTML cards, then join() combines them.
   productGrid.innerHTML = visibleProducts.map((product, index) => `
     <article class="product-card">
       <div class="product-visual visual-${product.id}">
@@ -74,7 +70,6 @@ function renderProducts() {
   lazyLoadProductImages();
 }
 
-// Event delegation handles buttons added later by renderProducts().
 productGrid.addEventListener('click', (event) => {
   const addButton = event.target.closest('[data-add]');
   const favoriteButton = event.target.closest('[data-favorite]');
@@ -102,7 +97,6 @@ productGrid.addEventListener('click', (event) => {
 
 document.querySelectorAll('.filter-button').forEach((button) => {
   button.addEventListener('click', () => {
-    // switch statement gives each category a clear response message.
     activeCategory = button.dataset.category;
     let message;
     switch (activeCategory) {
@@ -123,7 +117,6 @@ document.querySelectorAll('.filter-button').forEach((button) => {
 });
 searchInput.addEventListener('input', renderProducts);
 
-// Keyboard navigation: left/right arrows move focus between navigation links.
 const navLinks = [...document.querySelectorAll('#mainNav a')];
 document.querySelector('#mainNav').addEventListener('keydown', (event) => {
   if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
@@ -134,7 +127,6 @@ document.querySelector('#mainNav').addEventListener('keydown', (event) => {
   navLinks[nextIndex].focus();
 });
 
-// Theme switch uses a CSS class to update the page colours.
 document.querySelector('#themeButton').addEventListener('click', () => {
   const isNight = document.body.classList.toggle('night');
   document.querySelector('#themeButton').textContent = isNight ? '☀' : '☾';
@@ -142,7 +134,6 @@ document.querySelector('#themeButton').addEventListener('click', () => {
   showToast(isNight ? 'Night mode is on.' : 'Day mode is on.');
 });
 
-// Surprise button updates the page and plays a short generated tone (no audio file needed).
 const surpriseIdeas = [
   'Try a puzzle for a screen-free evening.',
   'Pick a book and make tonight story time.',
@@ -165,7 +156,7 @@ function playTinySound() {
     oscillator.connect(volume); volume.connect(audio.destination);
     oscillator.start(); oscillator.stop(audio.currentTime + 0.18);
     oscillator.onended = () => audio.close();
-  } catch (error) { /* Sound is optional if the browser blocks audio. */ }
+  } catch (error) { }
 }
 document.querySelector('#surpriseButton').addEventListener('click', () => {
   document.querySelector('#surpriseMessage').textContent = surpriseIdeas[surpriseIndex];
@@ -176,7 +167,6 @@ document.querySelector('#surpriseButton').addEventListener('click', () => {
   playTinySound();
 });
 
-// Read More toggles extra content and updates the button attribute/text.
 const readMoreButton = document.querySelector('#readMoreButton');
 readMoreButton.addEventListener('click', () => {
   const extraText = document.querySelector('#aboutMore');
@@ -186,7 +176,6 @@ readMoreButton.addEventListener('click', () => {
   readMoreButton.innerHTML = expanded ? 'Read our story <span>＋</span>' : 'Show less <span>−</span>';
 });
 
-// The signup form validates data and calls a callback after successful validation.
 function handleSignupSuccess(name) {
   document.querySelector('#formMessage').textContent = `Thanks, ${name}! You are on the Marwin demo list.`;
   showToast('Your demo signup looks good!');
@@ -218,7 +207,6 @@ document.querySelector('#resetFormButton').addEventListener('click', () => {
   showToast('The form has been cleared.');
 });
 
-// FAQ accordion updates both visibility and the accessible aria-expanded attribute.
 document.querySelectorAll('.faq-question').forEach((button) => button.addEventListener('click', () => {
   const item = button.closest('.faq-item');
   const isOpen = button.getAttribute('aria-expanded') === 'true';
@@ -226,7 +214,6 @@ document.querySelectorAll('.faq-question').forEach((button) => button.addEventLi
   item.classList.toggle('open', !isOpen);
 }));
 
-// Subscription modal can be closed by its close buttons, backdrop, or Escape key.
 const modal = document.querySelector('#subscribeModal');
 const openModalButton = document.querySelector('#openModal');
 let lastFocusedElement;
@@ -255,9 +242,6 @@ document.querySelector('#subscribeForm').addEventListener('submit', (event) => {
 renderProducts();
 
 
-// ============================================================
-// ASSIGNMENT 6 — jQuery enhancements (original Marwin design kept)
-// ============================================================
 function escapeSearchRegex(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -266,7 +250,6 @@ function highlightSearchMatches() {
   if (!window.jQuery || typeof searchInput === 'undefined') return;
   const query = searchInput.value.trim();
   $('.product-info h3, .product-description').each(function () {
-    // The product content is fixed by this demo, and the search is escaped first.
     const plainText = $(this).text();
     if (!query) {
       $(this).text(plainText);
@@ -292,17 +275,13 @@ function lazyLoadProductImages() {
 }
 
 $(document).ready(function () {
-  // Task 0: confirm that jQuery has loaded.
   console.log('jQuery is ready!');
 
-  // Task 1: real-time search already filters the product list; this handler
-  // also refreshes the highlight and suggestions as the user types.
   $('#searchInput').on('input keyup', function () {
     highlightSearchMatches();
     updateSearchSuggestions();
   });
 
-  // Task 2: autocomplete dropdown based on the existing product objects.
   function updateSearchSuggestions() {
     const query = $.trim($('#searchInput').val()).toLowerCase();
     const $list = $('#searchSuggestions').empty();
@@ -347,7 +326,6 @@ $(document).ready(function () {
     }
   });
 
-  // Task 4: colorful progress bar based on the current scroll position.
   function updateScrollProgress() {
     const scrollTop = $(window).scrollTop();
     const maxScroll = $(document).height() - $(window).height();
@@ -357,7 +335,6 @@ $(document).ready(function () {
   $(window).on('scroll resize', updateScrollProgress);
   updateScrollProgress();
 
-  // Task 5: animate the statistic counters once when the section is visible.
   let countersStarted = false;
   function startCounters() {
     if (countersStarted) return;
@@ -383,7 +360,6 @@ $(document).ready(function () {
   $(window).on('scroll resize', startCounters);
   startCounters();
 
-  // Task 6: after the existing validation succeeds, show a loading state.
   $('#signupForm').on('submit', function () {
     if ($('#signupForm .invalid').length > 0) return;
     const $button = $('#signupSubmit');
@@ -400,10 +376,7 @@ $(document).ready(function () {
     }, 1400);
   });
 
-  // Task 7: the existing showToast() now uses jQuery fadeIn/fadeOut.
-  // Existing add-to-bag, rating, favorites, and form actions trigger it.
 
-  // Task 8: copy a short Marwin description and show checkmark feedback.
   $('#copyNoteButton').on('click', function () {
     const text = 'Marwin — books, games, creative toys, and thoughtful gifts for curious minds.';
     const $button = $(this);
@@ -428,7 +401,6 @@ $(document).ready(function () {
     }
   });
 
-  // Task 9: load product photos as they approach the visible viewport.
   $(window).on('scroll resize', lazyLoadProductImages);
   lazyLoadProductImages();
 });
