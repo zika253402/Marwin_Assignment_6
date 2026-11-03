@@ -1637,3 +1637,34 @@ h3 {
         margin-left: 0
     }
 }
+
+.newsletter p.copy-snippet {
+    margin-top: 10px;
+    max-width: 360px;
+    line-height: 1.6;
+    color: #d9dbd3
+}
+
+.copy-note-button {
+    position: relative
+}
+
+.copy-tooltip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    color: #29251f;
+    padding: 6px 9px;
+    border-radius: 5px;
+    font-size: 10px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s
+}
+
+.copy-note-button.copied .copy-tooltip {
+    opacity: 1
+}

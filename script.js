@@ -406,7 +406,7 @@ function setupCopyButton() {
   const $button = $('#copyNoteButton');
 
   $('#copyNoteText').on('copy', function () {
-    showToast('Copied to clipboard!');
+    showCopiedState();
   });
 
   function showCopiedState() {
